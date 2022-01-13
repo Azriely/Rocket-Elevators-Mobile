@@ -14,7 +14,7 @@ const screens = {
     Elevators: {
         screen: ElevatorsScreen
     },
-    Elevator: {
+    'Elevator Status': {
         screen: ElevatorStatus
     },
 }

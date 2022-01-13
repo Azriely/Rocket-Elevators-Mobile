@@ -36,7 +36,7 @@ export default function ElevatorsScreen({ navigation }) {
 
           {elevators.map(e => {
               return <TouchableOpacity key={e.id} style={styles.elevatorItem} onPress={() => {
-                navigation.navigate('Elevator', e)
+                navigation.navigate('Elevator Status', e)
               }}><Text >Elevator {e.id} - Status: {e.status}</Text></TouchableOpacity> 
           })}
         

@@ -35,7 +35,9 @@ export default function ElevatorStatus({ navigation }) {
 
     <View style={styles.container}>
 
-        <Text style={styles.title}> Elevator {elevatorID} </Text>
+        <View style={styles.elevatorItem}>
+            <Text style={{fontSize: 25, color: 'black'}}> Elevator {elevatorID} </Text>
+        </View>
 
         <View style={styles.elevatorItem}>
             <Text style={{fontSize: 25, color: color}}>  {elevatorStatus.toUpperCase()} </Text>
