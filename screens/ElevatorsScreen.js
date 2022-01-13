@@ -63,7 +63,7 @@ export default function ElevatorsScreen({ navigation }) {
           
         
         <TouchableOpacity style={styles.loginBtn} onPress={pressBackHandler}>
-          <Text style={styles.loginText}>Back</Text>
+          <Text style={styles.loginText}>Log Out</Text>
         </TouchableOpacity>
 
     </View>
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
       alignItems: "center",
       justifyContent: "center",
       // marginTop: 40,
-      backgroundColor: "#e0e0eb",
+      backgroundColor: "#FF0000",
     },
   });
   

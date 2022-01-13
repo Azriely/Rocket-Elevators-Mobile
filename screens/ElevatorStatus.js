@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -15,19 +15,41 @@ import {
 
 export default function ElevatorStatus({ navigation }) {
 
+
+    const [elevatorStatus, setElevatorStatus] = useState(navigation.getParam('status'));
     const elevatorID = navigation.getParam('id');
-    const elevatorStatus = navigation.getParam('status');
+    
     let color;
     if (elevatorStatus == 'active') {
         color = 'green'
     } else color = 'red'
     const pressBackHandler = () => {
-        navigation.goBack()
+      navigation.navigate('Elevators')
       }
 
     const pressActivateHandler = () => {
-        
+        setElevatorStatus('active')
+        color = 'green'
+
+        const data = { id: elevatorID, status: "active" };
+
+        fetch('https://rocket-restapi.azurewebsites.net/elevator', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: data,
+        })
+        .then(response => response.json())
+        .then(() => {
+          console.log('Elevator Status is updated');
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
     }
+
+ 
 
     return (
 
