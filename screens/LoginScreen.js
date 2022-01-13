@@ -13,10 +13,17 @@ import {
 
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState("");
+  
 
-  const pressHandler = () => {
-      navigation.navigate('Elevators')
+ 
 
+  const  pressLoginHandler = async () => {
+      const response = await fetch(`https://rocket-restapi.azurewebsites.net/employees/${email}`)
+      if (response.ok) {
+        navigation.navigate('Elevators')
+      } else {
+        alert('Sorry! Only employees can access this app.')
+      }
   }
   
   return (
@@ -35,7 +42,7 @@ export default function LoginScreen({ navigation }) {
         />
       </View>
 
-      <TouchableOpacity style={styles.loginBtn} onPress={pressHandler}>
+      <TouchableOpacity style={styles.loginBtn} onPress={pressLoginHandler}>
         <Text style={styles.loginText}>LOGIN</Text>
       </TouchableOpacity>
     </View>
