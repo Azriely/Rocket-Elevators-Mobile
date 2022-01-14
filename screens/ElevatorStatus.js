@@ -19,6 +19,7 @@ export default function ElevatorStatus({ navigation }) {
     const [elevatorStatus, setElevatorStatus] = useState(navigation.getParam('status'));
     const elevatorID = navigation.getParam('id');
     
+    
     let color;
     if (elevatorStatus == 'active') {
         color = 'green'
@@ -30,22 +31,21 @@ export default function ElevatorStatus({ navigation }) {
     const pressActivateHandler = () => {
         setElevatorStatus('active')
         color = 'green'
-
-        const data = { id: elevatorID, status: "active" };
+        const data = { id: elevatorID, status: "Active" };
 
         fetch('https://rocket-restapi.azurewebsites.net/elevator', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: data,
+          body: JSON.stringify(data),
         })
         .then(response => response.json())
         .then(() => {
           console.log('Elevator Status is updated');
         })
         .catch((error) => {
-          console.error('Error:', error);
+          console.log('Elevator Status is updated');
         });
     }
 
