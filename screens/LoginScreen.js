@@ -18,7 +18,7 @@ export default function LoginScreen({ navigation }) {
  
 
   const  pressLoginHandler = async () => {
-      const response = await fetch(`https://rocket-restapi.azurewebsites.net/employees/${email}`)
+      const response = await fetch(`https://rocket-rest-ap.herokuapp.com/employee/${email}`)
       if (response.ok) {
         navigation.navigate('Elevators')
       } else {

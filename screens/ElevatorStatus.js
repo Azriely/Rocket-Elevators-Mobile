@@ -33,7 +33,7 @@ export default function ElevatorStatus({ navigation }) {
         color = 'green'
         const data = { id: elevatorID, status: "Active" };
 
-        fetch('https://rocket-restapi.azurewebsites.net/elevator', {
+        fetch('https://rocket-rest-ap.herokuapp.com/elevator', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

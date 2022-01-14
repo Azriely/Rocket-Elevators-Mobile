@@ -22,7 +22,7 @@ export default function ElevatorsScreen({ navigation }) {
 
   const getElevators = async () => {
     try {
-      const response = await fetch("https://rocket-restapi.azurewebsites.net/elevator/inactive");
+      const response = await fetch("https://rocket-rest-ap.herokuapp.com/elevator/inactive");
       const json = await response.json();
       setElevators(json);
     } catch (error) {
